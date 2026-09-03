@@ -5,6 +5,7 @@
 - State each assumption in one sentence.
 - If the request has two readings, show both and ask. Do not choose in silence.
 - If a simpler method exists, say so before you build the complex one.
+- If the target directory is not a Git repository yet, run `git init` before you make changes.
 
 ## Scope
 
