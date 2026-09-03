@@ -60,14 +60,17 @@ for dir in "$SKILLS_DIR"/*/; do
   [ "${#fm_desc}" -le "$DESC_MAX" ] || err "$name: description is ${#fm_desc} characters, limit is $DESC_MAX"
 
   # Relative links, excluding fenced code blocks and URLs and anchors.
-  while IFS= read -r link; do
-    [ -n "$link" ] || continue
-    case "$link" in http*|\#*|mailto:*) continue ;; esac
-    target="${link%%#*}"
-    [ -n "$target" ] || continue
-    [ -e "$dir/$target" ] || err "$name: broken link to '$target'"
-  done < <(awk '/^```/{f=!f; next} !f' "$dir"/*.md "$dir"/*/*.md 2>/dev/null \
-           | grep -oE '\]\([^)]+\)' | sed 's/^](//; s/)$//')
+  for markdown in "$dir"/*.md "$dir"/*/*.md; do
+    [ -f "$markdown" ] || continue
+    while IFS= read -r link; do
+      [ -n "$link" ] || continue
+      case "$link" in http*|\#*|mailto:*) continue ;; esac
+      target="${link%%#*}"
+      [ -n "$target" ] || continue
+      [ -e "$(dirname "$markdown")/$target" ] || err "$name: broken link to '$target'"
+    done < <(awk '/^```/{f=!f; next} !f' "$markdown" \
+             | grep -oE '\]\([^)]+\)' | sed 's/^](//; s/)$//')
+  done
 
   [ "$item_fail" -eq 1 ] || ok "$name"
 done
