@@ -41,7 +41,11 @@ if [ "$mode" = "personal" ]; then
   dest="$PERSONAL_DEST"
 else
   [ -n "$target" ] || die "--project needs a target repository path"
-  [ -d "$target" ] || die "no such directory: $target"
+  if [ -e "$target" ] && [ ! -d "$target" ]; then
+    die "target is not a directory: $target"
+  elif [ ! -d "$target" ] && [ "$dry_run" -eq 0 ]; then
+    die "no such directory: $target"
+  fi
   dest="$target/$PROJECT_SUBDIR"
 fi
 
