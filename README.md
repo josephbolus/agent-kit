@@ -56,8 +56,9 @@ ln -sfn AGENTS.md "$TARGET_REPO/CLAUDE.md"
 Edit `AGENTS.md` directly. A copied file does not update automatically.
 
 ## Install skills
-
+```
 git clone https://github.com/josephbolus/agent-kit
+```
 The installer accepts `--personal` or `--project`. With no skill name, it
 installs every skill. Personal installation creates symlinks; project
 installation creates copies under `.agents/skills/`.
