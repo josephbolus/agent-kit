@@ -20,8 +20,8 @@ docs/architecture/
 ├── adr-template.md
 └── decisions/
     ├── README.md
-    ├── 0001-short-decision-title.md
-    └── 0002-another-decision.md
+    ├── 2026-09-03-server-authoritative-coordination.md
+    └── 2026-10-12-distributed-thread-coordination.md
 ```
 
 Preserve an existing documented location and naming convention. Do not create a parallel ADR tree.
