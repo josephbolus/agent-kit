@@ -1,6 +1,6 @@
 # agent-kit
 
-`agent-kit` is a source repository for reusable agent instructions. It
+`agent-kit` is a source repository for my reusable agent instructions and skills. It
 contains:
 
 - coding guidance in [`AGENTS.md`](AGENTS.md);
@@ -57,6 +57,7 @@ Edit `AGENTS.md` directly. A copied file does not update automatically.
 
 ## Install skills
 
+git clone https://github.com/josephbolus/agent-kit
 The installer accepts `--personal` or `--project`. With no skill name, it
 installs every skill. Personal installation creates symlinks; project
 installation creates copies under `.agents/skills/`.
