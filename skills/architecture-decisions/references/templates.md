@@ -1,11 +1,47 @@
 # Repository ADR templates
 
-Use these templates only when the repository has no established ADR system. Adapt project-specific
-names and areas without weakening the consultation, conflict, approval, or supersession rules.
+Use these templates only when the repository has no established ADR system.
+
+If the repository already has an ADR location, naming convention, index format, or template, follow the existing convention unless the task explicitly includes changing it. Adapt project-specific names and areas without weakening the consultation, conflict, approval, or supersession rules.
+
+## Repository convention
+
+Before creating or modifying an ADR:
+
+1. Search the repository for an existing ADR convention.
+2. If one exists, follow its location, filename scheme, template, metadata, and indexing conventions.
+3. Do not introduce a competing ADR structure unless the task explicitly requires migrating or replacing the existing convention.
+
+If no ADR convention exists, use:
+
+```text
+docs/architecture/
+docs/architecture/decisions/
+```
+
+Create the directories lazily, only when the first architecture documentation or ADR is needed.
+
+Use date-based ADR filenames:
+
+```text
+YYYY-MM-DD-short-decision-title.md
+```
+
+Use lowercase kebab-case for the decision title.
+
+Example:
+
+```text
+docs/architecture/decisions/2026-08-31-use-binlog-based-point-in-time-recovery.md
+```
+
+Date-based filenames are the default because they are naturally sortable and avoid sequential-number collisions across concurrent branches.
 
 ## Root `AGENTS.md` lookup rows
 
 Merge these rows into a small context lookup table. Preserve existing instructions.
+
+When an existing repository ADR convention was discovered, substitute its actual paths below.
 
 ```markdown
 ## Context lookup
@@ -36,7 +72,7 @@ Replace the final sentence with concise linked bullets as decisions are accepted
 
 ```markdown
 - The server owns durable threads, ordering, recovery, and authorization; clients are leased
-  executors ([ADR-0002](decisions/0002-server-authoritative-coordination.md)).
+  executors ([Server-authoritative coordination](decisions/2026-09-03-server-authoritative-coordination.md)).
 ```
 
 ## `docs/architecture/decisions/README.md`
@@ -72,7 +108,7 @@ supersedes: null
 superseded-by: null
 ---
 
-# ADR-NNNN: Short decision title
+# Short decision title
 
 ## Context
 
@@ -109,21 +145,45 @@ Explain why it was not selected.
 
 ## Filename and index example
 
-For the next unused number `0007` and title `Server-authoritative coordination`, create:
+For a decision accepted on `2026-09-03` titled `Server-authoritative coordination`, create:
 
 ```text
-docs/architecture/decisions/0007-server-authoritative-coordination.md
+docs/architecture/decisions/2026-09-03-server-authoritative-coordination.md
 ```
 
 Add:
 
 ```markdown
-| [ADR-0007](0007-server-authoritative-coordination.md) | accepted | Server-authoritative coordination | server, threads, authorization | — |
+| [2026-09-03: Server-authoritative coordination](2026-09-03-server-authoritative-coordination.md) | accepted | Server-authoritative coordination | server, threads, authorization | — |
 ```
 
-When ADR-0012 supersedes it, update both records and the index:
+If a later decision titled `Distributed thread coordination` supersedes it, create a new date-based ADR rather than renaming or replacing the original:
+
+```text
+docs/architecture/decisions/2026-10-12-distributed-thread-coordination.md
+```
+
+Update the original ADR:
+
+```yaml
+status: superseded
+superseded-by: 2026-10-12-distributed-thread-coordination
+```
+
+Set the new ADR metadata:
+
+```yaml
+status: accepted
+date: 2026-10-12
+supersedes: 2026-09-03-server-authoritative-coordination
+superseded-by: null
+```
+
+Then update the index:
 
 ```markdown
-| [ADR-0007](0007-server-authoritative-coordination.md) | superseded | Server-authoritative coordination | server, threads, authorization | Superseded by ADR-0012 |
-| [ADR-0012](0012-distributed-thread-coordination.md) | accepted | Distributed thread coordination | server, threads, authorization | Supersedes ADR-0007 |
+| [2026-09-03: Server-authoritative coordination](2026-09-03-server-authoritative-coordination.md) | superseded | Server-authoritative coordination | server, threads, authorization | Superseded by [2026-10-12: Distributed thread coordination](2026-10-12-distributed-thread-coordination.md) |
+| [2026-10-12: Distributed thread coordination](2026-10-12-distributed-thread-coordination.md) | accepted | Distributed thread coordination | server, threads, authorization | Supersedes [2026-09-03: Server-authoritative coordination](2026-09-03-server-authoritative-coordination.md) |
 ```
+
+Never reuse, rename, or delete an accepted ADR merely because it has been superseded. Preserve it as part of the repository's architectural history.
