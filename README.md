@@ -135,13 +135,19 @@ when needed. See the [`skills/`](skills/) directory for the complete inventory.
 | [`design-control-loop`](skills/design-control-loop/SKILL.md) | Design and build an agentic control loop |
 | [`diagnose`](skills/diagnose/SKILL.md) | Diagnose bugs and performance regressions |
 | [`find-skills`](skills/find-skills/SKILL.md) | Discover and install skills |
+| [`frontend-design`](skills/frontend-design/SKILL.md) | Design distinctive frontend interfaces |
+| [`ghidra`](skills/ghidra/SKILL.md) | Reverse engineer binaries with Ghidra |
+| [`github`](skills/github/SKILL.md) | Interact with GitHub using the gh CLI |
+| [`google-workspace`](skills/google-workspace/SKILL.md) | Access Google Workspace APIs |
 | [`grill-me`](skills/grill-me/SKILL.md) | Resolve plan and design ambiguity |
 | [`grill-with-docs`](skills/grill-with-docs/SKILL.md) | Challenge plans and update decision docs |
 | [`html-doc`](skills/html-doc/SKILL.md) | Render Markdown plans as static HTML |
 | [`improve`](skills/improve/SKILL.md) | Simplify code without behavior changes |
 | [`improve-claude-md`](skills/improve-claude-md/SKILL.md) | Improve CLAUDE.md instructions |
 | [`improve-codebase-architecture`](skills/improve-codebase-architecture/SKILL.md) | Find architecture deepening opportunities |
+| [`internal-comms`](skills/internal-comms/SKILL.md) | Write internal communications |
 | [`karpathy-guidelines`](skills/karpathy-guidelines/SKILL.md) | Reduce common mistakes in coding tasks |
+| [`mcp-builder`](skills/mcp-builder/SKILL.md) | Create MCP servers |
 | [`mysql`](skills/mysql/SKILL.md) | Plan and review MySQL database work |
 | [`narrow-react-prop-types`](skills/narrow-react-prop-types/SKILL.md) | Narrow React component prop types |
 | [`plan`](skills/plan/SKILL.md) | Turn approved designs into ordered tasks |
@@ -153,10 +159,13 @@ when needed. See the [`skills/`](skills/) directory for the complete inventory.
 | [`task-to-pr`](skills/task-to-pr/SKILL.md) | Deliver tested and reviewed pull requests |
 | [`tdd`](skills/tdd/SKILL.md) | Use test-driven development |
 | [`test`](skills/test/SKILL.md) | Verify changes against acceptance criteria |
+| [`theme-factory`](skills/theme-factory/SKILL.md) | Apply visual themes to artifacts |
 | [`to-issues`](skills/to-issues/SKILL.md) | Turn plans into implementation issues |
 | [`to-prd`](skills/to-prd/SKILL.md) | Turn context into a project PRD |
 | [`triage`](skills/triage/SKILL.md) | Triage issues through a state machine |
 | [`unslop`](skills/unslop/SKILL.md) | Remove AI tells from writing |
+| [`web-artifacts-builder`](skills/web-artifacts-builder/SKILL.md) | Build complex HTML artifacts |
+| [`webapp-testing`](skills/webapp-testing/SKILL.md) | Test local web applications |
 | [`write-a-skill`](skills/write-a-skill/SKILL.md) | Create skills with bundled resources |
 | [`zoom-out`](skills/zoom-out/SKILL.md) | Provide broader context |
 
