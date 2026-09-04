@@ -9,9 +9,10 @@ contains:
 - reusable skills in [`skills/`](skills/); and
 - scripts for installing skills and validating this repository in [`bin/`](bin/).
 
-The repository has no application runtime or package manager. Its main
-artifacts are Markdown files that can be copied into another repository or
-loaded by an agent.
+The repository has no application runtime or external package dependencies.
+Its main artifacts are Markdown files that can be copied into another
+repository or loaded by an agent. The included shell scripts install skills and
+run repository checks.
 
 ## Repository layout
 
@@ -117,14 +118,47 @@ executed by this repository.
 
 Each skill directory contains a `SKILL.md` file with frontmatter and
 instructions. Reference files hold larger material that the skill can load
-when needed.
+when needed. See the [`skills/`](skills/) directory for the complete inventory.
 
 | Skill | Purpose |
 | --- | --- |
+| [`agent-browser`](skills/agent-browser/SKILL.md) | Automate browser workflows |
+| [`architecture`](skills/architecture/SKILL.md) | Maintain architecture documentation |
 | [`architecture-decisions`](skills/architecture-decisions/SKILL.md) | Maintain architecture decision records |
+| [`architecture-review`](skills/architecture-review/SKILL.md) | Review technical proposals |
 | [`bash-style`](skills/bash-style/SKILL.md) | Write and review Bash scripts |
+| [`build-iterated-agentic-loop`](skills/build-iterated-agentic-loop/SKILL.md) | Build an iterated coding-agent loop |
+| [`caveman`](skills/caveman/SKILL.md) | Apply simple, direct implementation practices |
+| [`cli-tools`](skills/cli-tools/SKILL.md) | Reference local CLI development tools |
+| [`codex-issue-coordinator`](skills/codex-issue-coordinator/SKILL.md) | Coordinate batches of GitHub issues |
+| [`design`](skills/design/SKILL.md) | Write a technical design |
+| [`design-control-loop`](skills/design-control-loop/SKILL.md) | Design and build an agentic control loop |
+| [`diagnose`](skills/diagnose/SKILL.md) | Diagnose bugs and performance regressions |
+| [`find-skills`](skills/find-skills/SKILL.md) | Discover and install skills |
+| [`grill-me`](skills/grill-me/SKILL.md) | Resolve plan and design ambiguity |
+| [`grill-with-docs`](skills/grill-with-docs/SKILL.md) | Challenge plans and update decision docs |
+| [`html-doc`](skills/html-doc/SKILL.md) | Render Markdown plans as static HTML |
+| [`improve`](skills/improve/SKILL.md) | Simplify code without behavior changes |
+| [`improve-claude-md`](skills/improve-claude-md/SKILL.md) | Improve CLAUDE.md instructions |
+| [`improve-codebase-architecture`](skills/improve-codebase-architecture/SKILL.md) | Find architecture deepening opportunities |
 | [`karpathy-guidelines`](skills/karpathy-guidelines/SKILL.md) | Reduce common mistakes in coding tasks |
+| [`mysql`](skills/mysql/SKILL.md) | Plan and review MySQL database work |
+| [`narrow-react-prop-types`](skills/narrow-react-prop-types/SKILL.md) | Narrow React component prop types |
+| [`plan`](skills/plan/SKILL.md) | Turn approved designs into ordered tasks |
+| [`progrium`](skills/progrium/SKILL.md) | Apply practical programming guidance |
+| [`review`](skills/review/SKILL.md) | Review implementation changes |
 | [`roboporter`](skills/roboporter/SKILL.md) | Port observable software behavior across environments |
+| [`show-me`](skills/show-me/SKILL.md) | Explain topics with focused visuals |
+| [`skill-creator`](skills/skill-creator/SKILL.md) | Create effective agent skills |
+| [`task-to-pr`](skills/task-to-pr/SKILL.md) | Deliver tested and reviewed pull requests |
+| [`tdd`](skills/tdd/SKILL.md) | Use test-driven development |
+| [`test`](skills/test/SKILL.md) | Verify changes against acceptance criteria |
+| [`to-issues`](skills/to-issues/SKILL.md) | Turn plans into implementation issues |
+| [`to-prd`](skills/to-prd/SKILL.md) | Turn context into a project PRD |
+| [`triage`](skills/triage/SKILL.md) | Triage issues through a state machine |
+| [`unslop`](skills/unslop/SKILL.md) | Remove AI tells from writing |
+| [`write-a-skill`](skills/write-a-skill/SKILL.md) | Create skills with bundled resources |
+| [`zoom-out`](skills/zoom-out/SKILL.md) | Provide broader context |
 
 ## Validate changes
 
